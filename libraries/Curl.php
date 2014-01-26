@@ -25,11 +25,11 @@ class Curl {
 
     function __construct($url = '')
     {
-        Log::write('debug', 'cURL Class Initialized');
+        Log::info('debug', 'cURL Class Initialized');
 
         if ( ! $this->is_enabled())
         {
-            Log::write('error', 'cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.');
+            Log::error('cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.');
         }
 
         $url AND $this->create($url);
