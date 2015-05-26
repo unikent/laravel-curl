@@ -10,6 +10,6 @@
         "lib-curl": "*"
     },
     "autoload": {
-        "psr-4": { "\Unikent\Curl\": "" }
+        "psr-0": { "Unikent\\Curl\\": "" }
     }
 }
