@@ -1,7 +1,6 @@
 {
     "name": "unikent/curl",
-    "version": "5.0.0",
-    "type": "library",
+    "version": "5.0.4",
     "description": "Laravel Curl Helper Library.",
     "keywords": ["curl", "laravel", "php"],
     "license": "MIT",
