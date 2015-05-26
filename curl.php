@@ -1,16 +1,11 @@
-<?php
+<?php namespace Unikent\Curl;
 
+use Illuminate\Support\Facades\App;
 /**
  * Laravel Curl Class
  *
  * Work with remote servers via cURL much easier than using the native PHP bindings.
  *
- * @package         Laravel
- * @subpackage      Libraries
- * @category        Libraries
- * @author          Philip Sturgeon
- * @license         http://philsturgeon.co.uk/code/dbad-license
- * @link            http://philsturgeon.co.uk/code/Codeigniter-curl
  */
 class Curl {
 
@@ -25,14 +20,15 @@ class Curl {
 
     function __construct($url = '')
     {
-        Log::write('debug', 'cURL Class Initialized');
-
         if ( ! $this->is_enabled())
         {
-            Log::write('error', 'cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.');
+            App::abort(500,'unikent\curl requires cURL. PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.');
         }
 
-        $url AND $this->create($url);
+        if(!empty($url)){
+            $this->create($url);
+        }
+
     }
 
     public function __call($method, $arguments)
@@ -371,6 +367,3 @@ class Curl {
     }
 
 }
-
-/* End of file Curl.php */
-/* Location: ./libraries/Curl.php */
